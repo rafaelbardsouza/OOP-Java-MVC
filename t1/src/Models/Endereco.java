@@ -50,5 +50,13 @@ public class Endereco {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	
+	public void setEndereco(String rua, String numero, String complemento, String bairro, String cep, String cidade, String uf) {
+		setRua(rua);
+		setNumero(numero);
+		setComplemento(complemento);
+		setBairro(bairro);
+		setCep(cep);
+		setCidade(cidade);
+		setUf(uf);
+	}
 }

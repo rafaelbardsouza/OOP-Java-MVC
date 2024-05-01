@@ -36,5 +36,11 @@ public class Fornecedor {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+	public void setFornecedor(String nome, String descricao, String telefone, String eMail, Endereco endereco) {
+		setNome(nome);
+		setDescricao(descricao);
+		setTelefone(telefone);
+		seteMail(eMail);
+		setEndereco(endereco);
+	}
 }

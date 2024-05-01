@@ -29,5 +29,10 @@ public class Produto {
 	public void setEstoque(Estoque estoque) {
 		this.estoque = estoque;
 	}
-	
+	public void setProduto(String nome, String descricao, Fornecedor fornecedor, Estoque estoque) {
+		setNome(nome);
+		setDescricao(descricao);
+		setFornecedor(fornecedor);
+		setEstoque(estoque);
+	}
 }

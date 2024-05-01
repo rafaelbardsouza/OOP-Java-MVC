@@ -22,5 +22,9 @@ public class Estoque {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-	
+	public void setEstoque(int quantidade, double preco, Produto produto) {
+		setQuantidade(quantidade);
+		setPreco(preco);
+		setProduto(produto);
+	}
 }
