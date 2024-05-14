@@ -28,9 +28,12 @@ public class FornecedorView {
                 case 2:
                     selectFornecedor(sc);
                     break;
+                case 3:
+                    updateFornecedor(sc);
+                    break;
                 case 4:
-                	deleteFornecedor(sc);
-                	break;
+                    deleteFornecedor(sc);
+                    break;
                 default:
                     System.out.println("Escolha inválida. Escolha novamente.");
             }
@@ -101,13 +104,57 @@ public class FornecedorView {
             System.out.println("Fornecedor não encontrado.");
         }
     }
+
+    private static void updateFornecedor(Scanner sc) {
+        listFornecedor();
+        System.out.print("Escolha fornecedor para Editar: ");
+        int idx = sc.nextInt();
+        sc.nextLine(); // Consume newline character
+        if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
+            Endereco end = new Endereco();
+            Fornecedor frn = new Fornecedor();
+            System.out.println("--- Dados Fornecedor ---");
+            System.out.print("Insira Nome: ");
+            frn.setNome(sc.nextLine());
+            System.out.print("Insira Descricao: ");
+            frn.setDescricao(sc.nextLine());
+            System.out.print("Insira Telefone: ");
+            frn.setTelefone(sc.nextLine());
+            System.out.print("Insira eMail: ");
+            frn.seteMail(sc.nextLine());
+
+            System.out.println("--- Dados Endereço ---");
+            System.out.print("Insira Rua: ");
+            end.setRua(sc.nextLine());
+            System.out.print("Insira Número: ");
+            end.setNumero(sc.nextLine());
+            System.out.print("Insira Complemento: ");
+            end.setComplemento(sc.nextLine());
+            System.out.print("Insira Bairro: ");
+            end.setBairro(sc.nextLine());
+            System.out.print("Insira CEP: ");
+            end.setCep(sc.nextLine());
+            System.out.print("Insira Cidade: ");
+            end.setCidade(sc.nextLine());
+            System.out.print("Insira UF: ");
+            end.setUf(sc.nextLine());
+            frn.setEndereco(end);
+
+            MainModels.fr[idx] = frn;
+            System.out.println("Fornecedor editado com sucesso!");
+        } else {
+            System.out.println("Fornecedor não encontrado.");
+        }
+    }
+
     private static void deleteFornecedor(Scanner sc) {
-    	listFornecedor();
-    	System.out.println("Selecione um fornecedor para Deletar.");
-    	int idx = sc.nextInt();
-    	sc.nextLine();
-    	if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
+        listFornecedor();
+        System.out.print("Selecione um fornecedor para Deletar: ");
+        int idx = sc.nextInt();
+        sc.nextLine(); // Consume newline character
+        if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
             MainModels.fr[idx] = null;
+            System.out.println("Fornecedor deletado com sucesso!");
         } else {
             System.out.println("Fornecedor não encontrado.");
         }
