@@ -11,17 +11,17 @@ public class FornecedorView {
         int op;
         do {
             System.out.println("--- Fornecedor ---");
-            System.out.println("0 - Sair");
+            System.out.println("0 - Voltar");
             System.out.println("1 - Adicionar Fornecedor");
             System.out.println("2 - Consultar Fornecedor");
             System.out.println("3 - Alterar Fornecedor");
             System.out.println("4 - Deletar Fornecedor");
             op = sc.nextInt();
-            sc.nextLine(); // Consume newline character
+            sc.nextLine(); 
             switch (op) {
                 case 0:
-                    System.out.println("Saindo...");
-                    break;
+                	Main.main(args);
+                	break;
                 case 1:
                     addFornecedor(sc);
                     break;
@@ -83,7 +83,7 @@ public class FornecedorView {
         }
     }
 
-    private static void listFornecedor() {
+    public static void listFornecedor() {
         for (int i = 0; i < MainModels.fr.length; i++) {
             if (MainModels.fr[i] == null) {
                 break;
@@ -94,10 +94,10 @@ public class FornecedorView {
     }
 
     private static void selectFornecedor(Scanner sc) {
-        listFornecedor();
-        System.out.print("Selecione um Fornecedor: ");
+    	System.out.print("Selecione um Fornecedor: \n");
+    	listFornecedor();
         int idx = sc.nextInt();
-        sc.nextLine(); // Consume newline character
+        sc.nextLine(); 
         if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
             MainModels.fr[idx].getFornecedor();
         } else {
@@ -107,9 +107,10 @@ public class FornecedorView {
 
     private static void updateFornecedor(Scanner sc) {
         listFornecedor();
-        System.out.print("Escolha fornecedor para Editar: ");
+        System.out.print("Escolha fornecedor para Editar: \n");
         int idx = sc.nextInt();
-        sc.nextLine(); // Consume newline character
+        sc.nextLine();
+        
         if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
             Endereco end = new Endereco();
             Fornecedor frn = new Fornecedor();
@@ -148,10 +149,10 @@ public class FornecedorView {
     }
 
     private static void deleteFornecedor(Scanner sc) {
-        listFornecedor();
-        System.out.print("Selecione um fornecedor para Deletar: ");
+        System.out.print("Selecione um fornecedor para Deletar: \n");
+    	listFornecedor();
         int idx = sc.nextInt();
-        sc.nextLine(); // Consume newline character
+        sc.nextLine(); 
         if (idx >= 0 && idx < MainModels.fr.length && MainModels.fr[idx] != null) {
             MainModels.fr[idx] = null;
             System.out.println("Fornecedor deletado com sucesso!");

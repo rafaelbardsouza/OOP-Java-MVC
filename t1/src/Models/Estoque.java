@@ -27,4 +27,9 @@ public class Estoque {
 		setPreco(preco);
 		setProduto(produto);
 	}
+	public void getEstoque() {
+		System.out.println("--- Estoque ---");
+		System.out.println("Quantidade: "+getQuantidade());
+		System.out.println("Preço: "+getPreco());
+	}
 }

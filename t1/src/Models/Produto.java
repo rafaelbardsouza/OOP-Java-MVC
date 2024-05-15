@@ -3,8 +3,8 @@ package Models;
 public class Produto {
 	private String nome;
 	private String descricao;
-	private Fornecedor fornecedor;
-	private Estoque estoque;
+	public Fornecedor fornecedor;
+	public Estoque estoque;
 	public String getNome() {
 		return nome;
 	}
@@ -34,5 +34,11 @@ public class Produto {
 		setDescricao(descricao);
 		setFornecedor(fornecedor);
 		setEstoque(estoque);
+	}
+	public void getProduto() {
+		System.out.println("--- Produto ---");
+		System.out.println("Nome "+ getNome());
+		System.out.println("Descrição "+ getDescricao());
+		
 	}
 }
